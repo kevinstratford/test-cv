@@ -4,14 +4,15 @@ jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-      - name: Fetch
-        uses: actions/checkout@master
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Test
         run: |
           gcc -ftest-coverage -fprofile-arcs -O0 -o test test.c example.c
           ./test
           gcov -abcfu example.c
       - name: Upload
-        uses: codecov/codecov-action@v1
+        uses: codecov/codecov-action@v3
         with:
-          files: ./example.c.gcov
+          gcov: true
+          gcov_include: example.c
