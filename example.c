@@ -1,4 +1,6 @@
 
+#include <stdio.h>
+
 #include "example.h"
 
 
@@ -17,3 +19,18 @@ int function2(void) {
   return ++a;
 }
 
+int function3(small_t arg) {
+
+  printf("Small type: %ld\n", sizeof(small_t));
+  printf("Values: %f %f ...\n", arg.data[0], arg.data[1]);
+
+  return 0;
+}
+
+int function4(medium_t arg) {
+
+  printf("Medium type: %ld\n", sizeof(medium_t));
+  printf("Values: %f %f ...\n", arg.data[0], arg.data[1]);
+
+  return 0;
+}
