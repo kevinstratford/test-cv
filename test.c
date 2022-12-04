@@ -6,6 +6,7 @@ int main(int argc, char ** argv) {
 
   small_t s = {0};
   medium_t m = {0};
+  large_t large =  {0};
 
   assert(function1(5) == 2);
   assert(function2()  == 2);
@@ -13,6 +14,7 @@ int main(int argc, char ** argv) {
 
   function3(s);
   function4(m);
+  function5(large);
 
   return 0;
 }
