@@ -1,10 +1,10 @@
 /**
- * @name Large object passed by value
- * @description An object larger than 64 bytes is passed by value to a function. Passing large objects by value unnecessarily use up scarce stack space, increase the cost of calling a function and can be a security risk. Use a const pointer to the object instead.
+ * @name Large object passed by value (> 128 bytes)
+ * @description An object larger than 128 bytes is passed by value to a function. Passing large objects by value unnecessarily use up scarce stack space, increase the cost of calling a function and can be a security risk. Use a const pointer to the object instead.
  * @kind problem
  * @problem.severity recommendation
  * @precision very-high
- * @id cpp/large-parameter
+ * @id my-cpp/relaxed-large-parameter
  * @tags efficiency
  *       readability
  *       statistical
@@ -19,7 +19,7 @@ where
   f.getAParameter() = p and
   p.getType() = t and
   t.getSize() = size and
-  size > 64 and
+  size > 128 and
   not t.getUnderlyingType() instanceof ArrayType and
   not f instanceof CopyAssignmentOperator and
   // exception: p is written to, which may mean the copy is intended

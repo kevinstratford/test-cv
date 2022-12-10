@@ -1,0 +1,10 @@
+name: "My CodeQL config"
+
+queries:
+  - uses: security-and-quality
+  - uses: ./my-query1.ql
+
+query-filters:
+- exclude:
+    id:
+    - cpp/large-parameter
