@@ -4,5 +4,6 @@ queries:
   - uses: security-and-quality
 
 query-filters:
-  - exclude:
-    id: cpp/large-parameter
+- exclude:
+    id:
+    - cpp/large-parameter
