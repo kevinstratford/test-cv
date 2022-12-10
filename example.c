@@ -42,3 +42,23 @@ int function5(large_t arg) {
 
   return 0;
 }
+
+int function6(int argc, char ** argv) {
+
+  if (argc == 1) {
+    printf("Use %s <filename> to generate a file\n", argv[0]);
+  }
+  else {
+    /* Make some output to file */
+
+    char filename[BUFSIZ] = {0};
+    FILE * fp = NULL;
+
+    sprintf(filename, "%s.txt", argv[1]);
+    fp = fopen(filename, "w");
+    fprintf(fp, "Here is some output in the file\n");
+    fclose(fp);
+  }
+
+  return 0;
+}

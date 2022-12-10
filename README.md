@@ -1,6 +1,11 @@
 # test-cv
 
-Test coverage
+There are a couple of things going on here. One is `codecov`, and
+the other is `codeql`.
+
+## Codecov
+
+Should work without too much difficulty.
 
 ## CodeQL query
 
@@ -9,6 +14,8 @@ the CodeQL CLI (binaries) and the codeql repository in the same
 location. This is discussed, e.g., here:
 
 https://github.blog/2022-04-19-sharing-security-expertise-through-codeql-packs-part-i/
+
+Get the location into the local `PATH`.
 
 In the local copy of this repository, run the database creation step
 ```
@@ -54,4 +61,21 @@ $ codeql database analyze ql-database ./codeql/relaxed-large-parameter.ql \
 	--output=cpp-results.sarif --sarif-add-snippets --rerun
 ```
 (note use `--rerun` to force the query to be rerun if necessary).
+
+
+For CI, I've set up the `.github/workflows/codeql.yml` to run with
+a config file `./github/workflows/codeql-config.yml`. The latter has
+```
+queries:
+  - uses: security-and-quality
+  - uses: ./codeql/relaxed-large-parameter.ql
+
+query-filters:
+- exclude:
+    id:
+    - cpp/large-parameter
+```
+to substitute the standard `cpp/large-parameter` test with the relaxed
+version. One should probably also add a query help file and an example
+to appear in the console.
 
