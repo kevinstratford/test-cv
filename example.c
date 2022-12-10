@@ -54,7 +54,7 @@ int function6(int argc, char ** argv) {
     char filename[BUFSIZ] = {0};
     FILE * fp = NULL;
 
-    sprintf(filename, "%s.txt", argv[1]);
+    snprintf(filename, BUFSIZ, "%s.txt", argv[1]);
     fp = fopen(filename, "w");
     fprintf(fp, "Here is some output in the file\n");
     fclose(fp);
