@@ -2,3 +2,7 @@ name: "My CodeQL config"
 
 queries:
   - uses: security-and-quality
+
+query-filters:
+  - exclude:
+    id: cpp/large-parameter
