@@ -3,9 +3,11 @@ name: "My CodeQL config"
 queries:
   - uses: security-and-quality
   - uses: ./codeql/relaxed-large-parameter.ql
+  - uses: ./codeql/sanitize-path.ql
 
 query-filters:
 - exclude:
     id:
     - cpp/large-parameter
     - cpp/world-writable-file-creation
+    - cpp/path-injection
