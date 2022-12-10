@@ -44,8 +44,8 @@ jobs:
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v2
       with:
-        languages: ${{ matrix.language }}
-        queries: ./my-query1.ql
+        languages: cpp
+        config-file: ./.github/workflows/codeql-config.yml
 
     - run: |
        make
