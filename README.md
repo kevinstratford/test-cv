@@ -14,7 +14,8 @@ In the local copy of this repository, run the database creation step
 ```
 $ codeql database create ql-database --language=cpp --command=make --overwrite
 ```
-
+Here, `make` will compile the code (no run actually necessary). Use
+`--overwrite` to force creation of a new database, if required.
 
 One can run a standard query, e.g.,
 ```
@@ -29,20 +30,28 @@ To run a standard suite, one can use `cpp-code-scanning.qls`,
 
 To add a new query, I'm just going to take a copy of the `cpp/large-parameter`
 code, and relax the constraint to a size of 128 bytes. Update the new query
-metadata.
+metadata in the file header.
+
+We will place the new query in
+```
+./codeql/relaxed-large-parameter.ql
+```
 
 Add an appropriate `qlpack.yml` file (must have that name) with a new
-description of dependencies. This must be present.
+description of dependencies.
 
 Run once:
 ```
-$ codeql pack install
+$ codeql pack install codeql
 ```
+which will create a `codeql-pack.lock.yml` in the `codeql` subdirectory
+(this doesn't need to be checked-in).
 
 It should then be possible to run an analysis, e.g.,:
 ```
-$ codeql database analyze ql-database my-query1.ql \
+$ codeql database analyze ql-database ./codeql/relaxed-large-parameter.ql \
         --format=sarifv2.1.0 --sarif-add-query-help \
 	--output=cpp-results.sarif --sarif-add-snippets --rerun
 ```
 (note use `--rerun` to force the query to be rerun if necessary).
+
