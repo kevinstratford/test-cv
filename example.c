@@ -1,5 +1,6 @@
 
 #include <stdio.h>
+#include <string.h>
 
 #include "example.h"
 
@@ -43,6 +44,16 @@ int function5(large_t arg) {
   return 0;
 }
 
+int sanitize(char * buf, size_t bufsz) {
+
+  for (int i = 0; i < strnlen(buf, BUFSIZ-1); i++) {
+    /* sanitise me */
+    ;
+  }
+
+  return 1;
+}
+
 int function6(int argc, char ** argv) {
 
   if (argc == 1) {
@@ -55,9 +66,11 @@ int function6(int argc, char ** argv) {
     FILE * fp = NULL;
 
     snprintf(filename, BUFSIZ, "%s.txt", argv[1]);
-    fp = fopen(filename, "w");
-    fprintf(fp, "Here is some output in the file\n");
-    fclose(fp);
+    if (sanitize(filename, BUFSIZ)) {
+      fp = fopen(filename, "w");
+      fprintf(fp, "Here is some output in the file\n");
+      fclose(fp);
+    }
   }
 
   return 0;
