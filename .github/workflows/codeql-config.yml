@@ -8,3 +8,4 @@ query-filters:
 - exclude:
     id:
     - cpp/large-parameter
+    - cpp/world-writable-file-creation
