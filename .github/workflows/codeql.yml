@@ -45,7 +45,7 @@ jobs:
       uses: github/codeql-action/init@v2
       with:
         languages: ${{ matrix.language }}
-        queries: my-query1.ql
+        queries: ./my-query1.ql
 
     - run: |
        make
