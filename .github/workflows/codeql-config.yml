@@ -3,7 +3,7 @@ name: "My CodeQL config"
 queries:
   - uses: security-and-quality
   - uses: ./codeql/relaxed-large-parameter.ql
-  - uses: ./codeql/sanitize-path.ql
+  - uses: ./codeql/sanitised-path.ql
 
 query-filters:
 - exclude:
