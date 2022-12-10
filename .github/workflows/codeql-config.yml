@@ -2,7 +2,7 @@ name: "My CodeQL config"
 
 queries:
   - uses: security-and-quality
-  - uses: ./my-query1.ql
+  - uses: ./codeql/relaxed-large-paramter.ql
 
 query-filters:
 - exclude:
