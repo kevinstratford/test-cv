@@ -46,8 +46,9 @@ jobs:
       with:
         languages: ${{ matrix.language }}
         queries: ./my-query1.ql
-    #- run: |
-    #  gcc example.c test.c
+
+    - run: |
+       make
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
