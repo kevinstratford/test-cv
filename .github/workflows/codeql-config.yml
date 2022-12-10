@@ -2,10 +2,12 @@ name: "My CodeQL config"
 
 queries:
   - uses: security-and-quality
-  - uses: ./my-query1.ql
+  - uses: ./codeql/relaxed-large-parameter.ql
+  - uses: ./codeql/sanitised-path.ql
 
 query-filters:
 - exclude:
     id:
     - cpp/large-parameter
     - cpp/world-writable-file-creation
+    - cpp/path-injection

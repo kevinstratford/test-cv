@@ -16,5 +16,7 @@ int main(int argc, char ** argv) {
   function4(m);
   function5(large);
 
+  function6(argc, argv);
+
   return 0;
 }
