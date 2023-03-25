@@ -4,7 +4,7 @@ There are a couple of things going on here. One is `codecov`, and
 the other is `codeql`.
 
 ###
-There is also AccessLint.
+There is also AccessLint. And Axe.
 
 <img src="./image.jpg">
 
