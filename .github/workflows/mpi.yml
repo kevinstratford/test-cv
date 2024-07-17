@@ -1,4 +1,4 @@
-name: mpi
+name: Regression / mpi
 on: [push, pull_request]
 jobs:
   build:
