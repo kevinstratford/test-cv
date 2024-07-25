@@ -22,6 +22,8 @@ jobs:
       run: |
         git clone https://github.com/kevinstratford/test-cv.git --branch gh-pages --single-branch gh-pages
         cp -r docs/_build/html/* gh-pages/
+        cp docs/_build/html/.nojekyll gh-pages
+        cp docs/_build/html/.buildinfo gh-pages
         cd gh-pages
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
