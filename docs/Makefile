@@ -17,6 +17,3 @@ help:
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
 %: Makefile
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
-	cp CNAME $(BUILDDIR)/html/CNAME
-	cp .nojekyll $(BUILDDIR)/html/.nojekyll
-	cp README.md $(BUILDDIR)/html/README.md
