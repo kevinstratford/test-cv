@@ -25,6 +25,8 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add .
+        git add .nojekyll
+        git add .buildinfo
         git commit -m "Update documentation" -a || true
 
     - name: Push changes
