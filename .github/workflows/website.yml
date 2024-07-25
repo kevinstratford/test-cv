@@ -7,9 +7,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - uses: ammaraskar/sphinx-action@master
-      with:
-        docs-folder: "docs"
+    - uses: action/setup-python@v5
+    - name: Install dependencies
+      run: |
+        pip install sphinx
+
+    name: Build
+      run: cd docs
+      run: make html -e
 
     - name: Commit documentation changes
       run: |
