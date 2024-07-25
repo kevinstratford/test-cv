@@ -12,9 +12,10 @@ jobs:
       run: |
         pip install sphinx
 
-    name: Build
-      run: cd docs
-      run: make html -e
+    - name: Build
+      run: |
+        cd docs
+        make html -e
 
     - name: Commit documentation changes
       run: |
