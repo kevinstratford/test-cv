@@ -15,7 +15,8 @@ jobs:
     - name: Build
       run: |
         cd docs
-        make html -e
+        make html
+        ls -la _build/html
 
     - name: Commit documentation changes
       run: |
@@ -25,6 +26,7 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add .
+        ls -la
         git add .nojekyll
         git add .buildinfo
         git commit -m "Update documentation" -a || true
