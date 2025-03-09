@@ -21,3 +21,4 @@ int function2(void);
 int function3(small_t arg);
 int function4(medium_t arg);
 int function5(large_t arg);
+int function6(int argc, char ** argv);
